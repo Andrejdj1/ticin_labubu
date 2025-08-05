@@ -5,6 +5,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { Heart, ShoppingCart, ChevronLeft, ChevronRight, Menu, X, Home, Printer } from 'lucide-react'
 
+// SEO metadata
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Store',
+  name: 'Labubu Tijana',
+  description: 'Najslađi Labubu plišanci za sve uzraste',
+  url: 'https://ticin-labubu.vercel.app',
+  logo: 'https://ticin-labubu.vercel.app/pink-labubu-bow.png'
+}
+
 interface LabubuProduct {
   id: number
   name: string
@@ -148,6 +158,18 @@ export default function HomePage() {
   }
 
   return (
+    <>
+    {/* SEO Meta tags */}
+    <head>
+      <title>Labubu Tijana 👑 - Najslađi Labubu plišanci</title>
+      <meta name="description" content="Otkrijte našu čarobnu kolekciju od 16 jedinstvenih Labubu prijatelja! Originalni plišanci i brza dostava." />
+      <meta name="keywords" content="labubu, plišanci, igračke, labubu tijana, anime, kawaii" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </head>
+    
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
       {/* Navigation */}
       <nav className="bg-white shadow-md border-b-2 border-pink-200 sticky top-0 z-50">
@@ -355,5 +377,6 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
