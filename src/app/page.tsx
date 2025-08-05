@@ -5,6 +5,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { Heart, ShoppingCart, ChevronLeft, ChevronRight, Menu, X, Home, Printer } from 'lucide-react'
 
+interface LabubuProduct {
+  id: number
+  name: string
+  price: number
+  image: string
+  description: string
+}
+
 const labubuProducts = [
   {
     id: 1,
@@ -65,9 +73,9 @@ export default function HomePage() {
     setFavorites((prev) => (prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]))
   }
 
-  const addToCart = (product: any) => {
-    alert(`${product.name} je dodat u korpu! 🛒`)
-  }
+  const addToCart = (product: LabubuProduct) => {
+  alert(`${product.name} je dodat u korpu! 🛒`)
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
