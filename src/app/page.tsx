@@ -13,48 +13,118 @@ interface LabubuProduct {
   description: string
 }
 
-const labubuProducts = [
+const labubuProducts: LabubuProduct[] = [
   {
     id: 1,
     name: "Klasični Roze Labubu",
     price: 2500,
-    image: "/placeholder.svg?height=300&width=300&text=Roze+Labubu",
+    image: "/pink-labubu-bow.png", // lokalna slika
     description: "Originalni roze Labubu sa mašnicom",
   },
   {
     id: 2,
     name: "Plavi Labubu Princ",
     price: 2800,
-    image: "/placeholder.svg?height=300&width=300&text=Plavi+Labubu",
+    image: "/blue-plush-toy-prince.png",
     description: "Elegantni plavi Labubu u prinčevskom odelu",
   },
   {
     id: 3,
     name: "Žuti Labubu Sunce",
     price: 2300,
-    image: "/placeholder.svg?height=300&width=300&text=Žuti+Labubu",
+    image: "/sunny-labubu-sunflower.png",
     description: "Veseli žuti Labubu sa suncokretom",
   },
   {
     id: 4,
     name: "Ljubičasti Labubu Čarobnjak",
     price: 3200,
-    image: "/placeholder.svg?height=300&width=300&text=Ljubičasti+Labubu",
+    image: "/magical-labubu-wizard.png",
     description: "Magični ljubičasti Labubu sa čarobnjačkim šeširom",
   },
   {
     id: 5,
     name: "Beli Labubu Anđeo",
     price: 2900,
-    image: "/placeholder.svg?height=300&width=300&text=Beli+Labubu",
+    image: "/white-angel-labubu-plush.png",
     description: "Nebeški beli Labubu sa krilima i aureolom",
   },
   {
     id: 6,
     name: "Crni Labubu Ninja",
     price: 2700,
-    image: "/placeholder.svg?height=300&width=300&text=Crni+Labubu",
+    image: "/black-ninja-labubu-plush.png",
     description: "Misteriozni crni Labubu ninja sa maskom",
+  },
+  {
+    id: 7,
+    name: "Zeleni Labubu Šumar",
+    price: 2600,
+    image: "/green-forest-labubu.png",
+    description: "Prirodni zeleni Labubu sa lišćem",
+  },
+  {
+    id: 8,
+    name: "Crveni Labubu Vatrogasac",
+    price: 3100,
+    image: "/red-firefighter-labubu.png",
+    description: "Hrabri crveni Labubu vatrogasac",
+  },
+  {
+    id: 9,
+    name: "Narandžasti Labubu Jesenja",
+    price: 2400,
+    image: "/orange-autumn-labubu.png",
+    description: "Topli narandžasti Labubu sa jesenjim lišćem",
+  },
+  {
+    id: 10,
+    name: "Tirkizni Labubu Morski",
+    price: 2750,
+    image: "/turquoise-ocean-labubu.png",
+    description: "Osvežavajući tirkizni Labubu sa školjkama",
+  },
+  {
+    id: 11,
+    name: "Zlatni Labubu Kralj",
+    price: 3500,
+    image: "/golden-king-labubu.png",
+    description: "Raskošni zlatni Labubu sa krunom",
+  },
+  {
+    id: 12,
+    name: "Srebrni Labubu Kraljica",
+    price: 3400,
+    image: "/silver-queen-labubu.png",
+    description: "Elegantni srebrni Labubu sa dijademom",
+  },
+  {
+    id: 13,
+    name: "Duga Labubu Čarobni",
+    price: 2950,
+    image: "/rainbow-magical-labubu.png",
+    description: "Šareni Labubu sa duginom bojama",
+  },
+  {
+    id: 14,
+    name: "Pastelni Labubu Sladoled",
+    price: 2650,
+    image: "/pastel-icecream-labubu.png",
+    description: "Slatki pastelni Labubu sa sladoledom",
+  },
+  {
+    id: 15,
+    name: "Galaktički Labubu Astronaut",
+    price: 3300,
+    image: "/galaxy-astronaut-labubu.png",
+    description: "Kosmički Labubu sa astronautskim kacigom",
+  },
+  {
+    id: 16,
+    name: "Vintage Labubu Retro",
+    price: 2850,
+    image: "/vintage-retro-labubu.png",
+    description: "Nostalgični vintage Labubu u retro stilu",
   },
 ]
 
@@ -74,8 +144,8 @@ export default function HomePage() {
   }
 
   const addToCart = (product: LabubuProduct) => {
-  alert(`${product.name} je dodat u korpu! 🛒`)
-}
+    alert(`${product.name} je dodat u korpu! 🛒`)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
@@ -128,6 +198,10 @@ export default function HomePage() {
                   <Printer className="w-4 h-4" />
                   3D Printing
                 </Link>
+                <button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-md flex items-center gap-2 w-fit">
+                  <ShoppingCart className="w-4 h-4" />
+                  Korpa (0)
+                </button>
               </div>
             </div>
           )}
@@ -152,6 +226,17 @@ export default function HomePage() {
             <p className="text-white/80 text-lg max-w-2xl mx-auto">
               Otkrijte našu čarobnu kolekciju od {labubuProducts.length} jedinstvenih Labubu prijatelja!
             </p>
+            <div className="mt-6 flex justify-center gap-1">
+              <span className="w-2 h-2 bg-white/60 rounded-full animate-pulse"></span>
+              <span
+                className="w-2 h-2 bg-white/80 rounded-full animate-pulse"
+                style={{ animationDelay: "0.2s" }}
+              ></span>
+              <span
+                className="w-2 h-2 bg-white/60 rounded-full animate-pulse"
+                style={{ animationDelay: "0.4s" }}
+              ></span>
+            </div>
           </div>
         </div>
       </header>
